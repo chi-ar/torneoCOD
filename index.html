@@ -35,6 +35,12 @@
 <body style="background-color: rgb(79, 73, 73);">
 
     <div class="container" style="margin-top:100px;">
+
+        <h1 id="greet">Registrati :3</h1>
+        <h1 id="greetUser"></h1>
+        <h1 id="greet2"></h1>
+
+
         <form>
             <!-- username input -->
             <div class="form-outline mb-4">
@@ -52,8 +58,6 @@
             <button type="button" id="signInButton" class="btn btn-primary btn-block mb-4">Sign in</button>
             <button type="button" id="createNewUserButton" class="btn btn-primary btn-block mb-4">Create new account</button>
         </form>
-
-        <hr>
 
         <div id="logout-form">
             <button type="button" id="logoutButton" class="btn btn-primary btn-block mb-4">Logout</button>
@@ -84,6 +88,11 @@
 
             console.log("New user = " + email + " password = " + password);
             CreateNewUser(email, password);
+
+            document.getElementById('greet').innerHTML="Grazie di aver creato l'account";
+            document.getElementById('greetUser').innerHTML=email;
+            document.getElementById('greet2').innerHTML="Adesso effettua l'accesso!!!!";
+
         });
 
         //SIGNIN listener
@@ -93,13 +102,21 @@
 
             console.log("Existing user = " + email + " password = " + password);
             SignIn(email, password);
+
+            document.getElementById('greet').innerHTML="Ciau";
+            document.getElementById('greetUser').innerHTML=email;
+            document.getElementById('greet2').innerHTML="Ora sloggati plz";
+
         });
 
         //LOGOUT listener
         $("#logoutButton").click(function() {
-            
             firebase.auth().signOut();
             console.log("logged out");
+
+            document.getElementById('greet').innerHTML="Perché lo hai fatto :(";
+            document.getElementById('greetUser').innerHTML="";
+            document.getElementById('greet2').innerHTML="";
 
         });
 
